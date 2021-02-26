@@ -21,6 +21,7 @@ interface Props {
   permission: AuthPermission
   accessToken: string
   onCreate?: (editor: Editor) => void
+  onDestroy?: (editor: Editor) => void
 }
 
 export const WizEditor = (props: Props) => {
@@ -31,6 +32,14 @@ export const WizEditor = (props: Props) => {
     if (!editorContainerRef.current) {
       return
     }
+    if (editorRef.current) {
+      if (props.onDestroy) {
+        props.onDestroy(editorRef.current)
+      }
+      editorRef.current.destroy()
+      editorRef.current = null
+    }
+    //
     const auth: AuthMessage = {
       appId: props.appId,
       userId: props.options.user.userId,

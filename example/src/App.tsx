@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 
-import { WizEditor, Editor, EditorOptions, EditorDoc, domUtils } from 'wiz-editor-react'
+import { WizEditor, Editor, EditorOptions, EditorDoc, domUtils, assert } from 'wiz-editor-react'
 
 const appId = '';
 
-function handleUploadResource(file: File): Promise<string> {
+function handleUploadResource(editor: Editor, file: File): Promise<string> {
+  assert(editor);
   return domUtils.fileToDataUrl(file);
 }
 
