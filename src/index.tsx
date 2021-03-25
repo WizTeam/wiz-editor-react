@@ -10,21 +10,25 @@ import {
 
 export * from 'wiz-editor/client'
 
-interface Props {
+interface EditorProps {
   options: EditorOptions
   containerStyle?: React.CSSProperties
   editorStyle?: React.CSSProperties
   containerClassName?: string
   className?: string
+  userId: string
+  displayName: string
+  avatarUrl: string
   appId: string
   docId: string
   permission: AuthPermission
   accessToken: string
+  userData?: any
   onCreate?: (editor: Editor) => void
   onDestroy?: (editor: Editor) => void
 }
 
-export const WizEditor = (props: Props) => {
+export const WizEditor = (props: EditorProps) => {
   const editorContainerRef = React.useRef(null)
   const editorRef = React.useRef<Editor | null>(null)
   //
@@ -42,10 +46,13 @@ export const WizEditor = (props: Props) => {
     //
     const auth: AuthMessage = {
       appId: props.appId,
-      userId: props.options.user.userId,
+      userId: props.userId,
+      displayName: props.displayName,
+      avatarUrl: props.avatarUrl,
       docId: props.docId,
       token: props.accessToken,
-      permission: props.permission
+      permission: props.permission,
+      userData: props.userData
     }
 
     assert(editorContainerRef.current)

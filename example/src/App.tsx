@@ -24,10 +24,6 @@ const App = () => {
     initLocalData: docData ? docData : undefined,
     titleInEditor: true,
     serverUrl: '',
-    user: {
-      userId: 'test-user',
-      displayName: 'Test User',
-    },
     callbacks: {
       onUploadResource: handleUploadResource,
     }
@@ -69,6 +65,9 @@ const App = () => {
       </button>
     </div>
     <WizEditor
+      userId={'test-suer'}
+      displayName={'Test User'}
+      avatarUrl={'https://www.live-editor.com/wp-content/new-uploads/a0919cb4-d3c2-4027-b64d-35a4c2dc8e23.png'}
       appId={appId}
       docId={docId}
       options={options}
