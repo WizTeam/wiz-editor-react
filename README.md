@@ -25,10 +25,6 @@ class Example extends Component {
       local: true,
       titleInEditor: true,
       serverUrl: '',
-      user: {
-        userId: 'test-user',
-        displayName: 'Test User',
-      },
     };
 
     return <WizEditor
