@@ -1,6 +1,6 @@
 {
   "name": "wiz-editor-react",
-  "version": "0.0.317",
+  "version": "0.0.382",
   "description": "wiz-editor react component",
   "author": "WizTeam",
   "license": "MIT",
@@ -62,6 +62,6 @@
     "dist"
   ],
   "dependencies": {
-    "wiz-editor": "^0.0.317"
+    "wiz-editor": "^0.0.382"
   }
 }
